@@ -1,6 +1,6 @@
 {
-  "name": "tsc-util",
-  "version": "0.1.0",
+  "name": "@raykholo/tsc-util",
+  "version": "0.1.1",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -9,9 +9,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "bun build src/index.ts --outdir dist --target node",
+    "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "dev": "bun run src/index.ts"
+    "dev": "bun run src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "@raykholo:registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@types/bun": "latest",
